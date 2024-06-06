@@ -31,6 +31,69 @@
             border-color: #0056b3;
         }
     </style>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #7ED56F; /* fallback for old browsers */
+            background-image: linear-gradient(315deg, #7ED56F 0%, #28B485 74%);
+        }
+
+        .container {
+            max-width: 800px;
+        }
+
+        .header-image {
+            margin-bottom: 2rem;
+        }
+
+        .section-title {
+            font-weight: bold;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .section-subtitle {
+            font-weight: normal;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: #666;
+        }
+
+        .form-section {
+            margin-bottom: 2rem;
+            padding: 2rem;
+            border: 1px solid #ddd;
+            border-radius: 0.5rem;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group label {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .form-control::placeholder {
+            font-style: italic;
+            color: #999;
+        }
+
+        button[type="submit"] {
+            background-color: #ff6f61;
+            color: white;
+            font-weight: bold;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 0.25rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #e65042;
+        }
+    </style>
 </head>
 
 <body>
