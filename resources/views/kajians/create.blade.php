@@ -141,7 +141,7 @@
 <body>
     <div class="container mt-5">
         <div class="text-center header-image">
-            <img src="https://via.placeholder.com/150" alt="Header Image" class="img-fluid">
+            <img src="{{asset('lte/dist/img/LogoSmartdss.png')}}" width="500" height="300" alt="Header Image" class="img-fluid">
         </div>
         <form action="{{ route('kajians.store') }}" method="POST" enctype="multipart/form-data">
             @csrf

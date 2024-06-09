@@ -16,11 +16,11 @@
   <link rel="stylesheet" href="{{asset('lte/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css') }}">
   <!-- iCheck -->
   <link rel="stylesheet" href="{{asset('lte/plugins/icheck-bootstrap/icheck-bootstrap.min.css') }}">
-  <!-- JQVMap -->
-
+  <!-- DataTables -->
   <link rel="stylesheet" href="{{asset('plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}">
   <link rel="stylesheet" href="{{asset('plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}">
   <link rel="stylesheet" href="{{asset('plugins/datatables-buttons/css/buttons.bootstrap4.min.css') }}">
+  <!-- JQVMap -->
   <link rel="stylesheet" href="{{asset('lte/plugins/jqvmap/jqvmap.min.css') }}">
   <!-- Theme style -->
   <link rel="stylesheet" href="{{asset('lte/dist/css/adminlte.min.css') }}">
@@ -35,23 +35,23 @@
 <body class="hold-transition sidebar-mini layout-fixed">
   <div class="wrapper">
 
-    <!-- Preloader -->
-    <!-- <div class="preloader flex-column justify-content-center align-items-center">
-    <img class="animation__shake" src="dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
-  </div> -->
-
     <!-- Navbar -->
     <nav class="main-header navbar navbar-expand navbar-white navbar-light">
 
+      <!-- Left navbar links -->
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+        </li>
+
+      </ul>
       <!-- Right navbar links -->
       <ul class="navbar-nav ml-auto">
-
         <li class="nav-item">
           <a class="nav-link" data-widget="fullscreen" href="#" role="button">
             <i class="fas fa-expand-arrows-alt"></i>
           </a>
         </li>
-
         <li class="nav-item">
           <a class="nav-link" data-widget="control-sidebar" data-controlsidebar-slide="true" href="#" role="button">
             <i class="fas fa-th-large"></i>
@@ -72,25 +72,17 @@
           <div class="row mb-2">
             <div class="col-sm-6">
               <h1 class="m-0">Permintaan Download</h1>
-            </div><!-- /.col -->
-            <!-- /.col -->
-          </div><!-- /.row -->
-        </div><!-- /.container-fluid -->
+            </div>
+          </div>
+        </div>
       </div>
-      <!-- /.content-header -->
 
-
-      <!-- /.content -->
+      <!-- Main content -->
       <section class="content">
         <div class="container-fluid">
           <div class="row">
             <div class="col-12">
-
-              <!-- /.card -->
-
               <div class="card">
-
-                <!-- /.card-header -->
                 <div class="card-body">
                   <div style="text-align: right;">
                     <a href="{{ route('permintaans.create') }}" class="btn btn-success">Tambah Data</a>
@@ -137,37 +129,25 @@
                       </tr>
                       @endforeach
                     </tbody>
-
                     </tfoot>
                   </table>
                 </div>
-                <!-- /.card-body -->
               </div>
-              <!-- /.card -->
             </div>
-            <!-- /.col -->
           </div>
-          <!-- /.row -->
         </div>
-        <!-- /.container-fluid -->
       </section>
     </div>
-    <!-- /.content-wrapper -->
-
 
     <!-- Control Sidebar -->
     <aside class="control-sidebar control-sidebar-dark">
-      <!-- Control sidebar content goes here -->
     </aside>
-    <!-- /.control-sidebar -->
   </div>
-  <!-- ./wrapper -->
 
   <!-- jQuery -->
   <script src="{{asset('lte/plugins/jquery/jquery.min.js')}}"></script>
   <!-- jQuery UI 1.11.4 -->
   <script src="{{asset('lte/plugins/jquery-ui/jquery-ui.min.js')}}"></script>
-  <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
   <script>
     $.widget.bridge('uibutton', $.ui.button)
   </script>
@@ -193,13 +173,8 @@
   <script src="{{asset('lte/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js')}}"></script>
   <!-- AdminLTE App -->
   <script src="{{asset('lte/dist/js/adminlte.js')}}"></script>
-
-  <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-  <script src="{{asset('lte/dist/js/pages/dashboard.js')}}">
-  </script>
-  <script src="{{asset('plugins/jquery/jquery.min.js')}}"></script>
-  <!-- Bootstrap 4 -->
-  <script src="{{asset('lte/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+  <!-- AdminLTE for demo purposes -->
+  <!-- DataTables -->
   <script src="{{asset('lte/plugins/datatables/jquery.dataTables.min.js')}}"></script>
   <script src="{{asset('lte/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js')}}"></script>
   <script src="{{asset('lte/plugins/datatables-responsive/js/dataTables.responsive.min.js')}}"></script>
@@ -212,18 +187,65 @@
   <script src="{{asset('lte/plugins/datatables-buttons/js/buttons.html5.min.js')}}"></script>
   <script src="{{asset('lte/plugins/datatables-buttons/js/buttons.print.min.js')}}"></script>
   <script src="{{asset('lte/plugins/datatables-buttons/js/buttons.colVis.min.js')}}"></script>
-  <!-- AdminLTE App -->
-  <script src="{{asset('lte/dist/js/adminlte.min.js')}}"></script>
-  <!-- AdminLTE for demo purposes -->
-  <script src="{{asset('lte/dist/js/demo.js')}}"></script>
-  <!-- Page specific script -->
+
   <script>
     $(function() {
       $("#example1").DataTable({
         "responsive": true,
         "lengthChange": true,
-        "autoWidth": true,
-        "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+        "autoWidth": false, // Disable auto width to enable custom width settings
+        "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"],
+        "columns": [{
+            "width": "5%"
+          }, // No
+          {
+            "width": "15%"
+          }, // Judul Kajian
+          {
+            "width": "10%"
+          }, // Tahun
+          {
+            "width": "10%"
+          }, // ID JSS
+          {
+            "width": "15%"
+          }, // Nama Lengkap
+          {
+            "width": "8%"
+          }, // Alamat Email
+          {
+            "width": "10%"
+          }, // Keperluan
+          {
+            "width": "10%"
+          }, // Instansi
+          {
+            "width": "10%"
+          }, // Tanggal
+          {
+            "width": "10%"
+          }, // Status
+          {
+            "width": "10%"
+          }, // Readed
+          {
+            "width": "15%"
+          } // Actions
+        ],
+        "language": {
+          "lengthMenu": "Tampilkan _MENU_ entri per halaman",
+          "zeroRecords": "Tidak ada data yang ditemukan",
+          "info": "Menampilkan _PAGE_ dari _PAGES_ halaman",
+          "infoEmpty": "Tidak ada data yang tersedia",
+          "infoFiltered": "(difilter dari _MAX_ total entri)",
+          "search": "Cari:",
+          "paginate": {
+            "first": "Pertama",
+            "last": "Terakhir",
+            "next": "Berikutnya",
+            "previous": "Sebelumnya"
+          },
+        }
       }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
     });
   </script>

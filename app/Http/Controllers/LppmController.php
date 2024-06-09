@@ -92,13 +92,13 @@ class LppmController extends Controller
         
         $lppm->save();
     
-        return redirect()->route('lppms.index2')->with('success', 'Lppm updated successfully');
+        return redirect()->route('lppms.index')->with('success', 'Lppm updated successfully');
         
     }
 
     public function destroy(string $id)
     {
         Lppm::find($id)->delete();
-    return redirect()->route('lppms.index2')->with('success', 'Lppm deleted successfully');
+    return redirect()->route('lppms.index')->with('success', 'Lppm deleted successfully');
     }
 }

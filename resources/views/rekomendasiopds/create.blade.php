@@ -5,58 +5,109 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add New Rekomendasi OPD</title>
-    <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <!-- Select2 JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
     <style>
         body {
-            background-color: #f8f9fa;
-            padding: 20px;
+            font-family: 'Arial', sans-serif;
+            background-color: #7ED56F;
+            background-image: linear-gradient(315deg, #7ED56F 0%, #28B485 74%);
         }
-        .form-container {
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+        .container {
+            max-width: 800px;
         }
+
+        .header-image {
+            margin-bottom: 2rem;
+        }
+
+        .section-title {
+            font-weight: bold;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .section-subtitle {
+            font-weight: normal;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: #666;
+        }
+
+        .form-section {
+            margin-bottom: 2rem;
+            padding: 2rem;
+            border: 1px solid #ddd;
+            border-radius: 0.5rem;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
         .form-group label {
             font-weight: bold;
+            color: #333;
         }
-        .btn-primary {
-            background-color: #007bff;
-            border-color: #007bff;
-            border-radius: 20px;
+
+        .form-control::placeholder {
+            font-style: italic;
+            color: #999;
         }
-        .btn-primary:hover {
-            background-color: #0056b3;
-            border-color: #0056b3;
+
+        button[type="submit"] {
+            background-color: #ff6f61;
+            color: white;
+            font-weight: bold;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 0.25rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #e65042;
         }
     </style>
 </head>
 
 <body>
-    <div class="container">
-        <div class="form-container">
-            <h1 class="mb-4 text-center">Add New Rekomendasi OPD</h1>
-            <form action="{{ route('rekomendasiopds.store') }}" method="POST">
-                @csrf
+    <div class="container mt-5">
+        <div class="text-center header-image">
+            <img src="{{asset('lte/dist/img/LogoSmartdss.png')}}" width="500" height="300" alt="Header Image" class="img-fluid">
+        </div>
+        <form action="{{ route('rekomendasiopds.store') }}" method="POST">
+            @csrf
+            <div class="form-section text-center">
+                <h2 class="section-title">Add New Rekomendasi OPD</h2>
+                <p class="section-subtitle">Please fill in the details below</p>
+            </div>
+
+            <div class="form-section">
+                <h2 class="section-title">Rekomendasi Details</h2>
                 <div class="form-group">
                     <label for="id_kajian">ID Kajian:</label>
-                    <input type="text" class="form-control" name="id_kajian" id="id_kajian" required>
+                    <input type="text" class="form-control" name="id_kajian" id="id_kajian" placeholder="Enter ID Kajian" required>
                 </div>
 
                 <div class="form-group">
                     <label for="opd_id">OPD ID:</label>
-                    <input type="text" class="form-control" name="opd_id" id="opd_id" required>
+                    <input type="text" class="form-control" name="opd_id" id="opd_id" placeholder="Enter OPD ID" required>
                 </div>
 
                 <div class="form-group">
                     <label for="rekomendasi">Rekomendasi:</label>
-                    <input type="text" class="form-control" name="rekomendasi" id="rekomendasi" required>
+                    <input type="text" class="form-control" name="rekomendasi" id="rekomendasi" placeholder="Enter Rekomendasi" required>
                 </div>
 
                 <div class="form-group">
                     <label for="tindak_lanjut">Tindak Lanjut:</label>
-                    <input type="text" class="form-control" name="tindak_lanjut" id="tindak_lanjut" required>
+                    <input type="text" class="form-control" name="tindak_lanjut" id="tindak_lanjut" placeholder="Enter Tindak Lanjut" required>
                 </div>
 
                 <div class="form-group">
@@ -74,15 +125,20 @@
                         <option value="0">False</option>
                     </select>
                 </div>
-
-                <button type="submit" class="btn btn-primary btn-block">Add Rekomendasi OPD</button>
-            </form>
-        </div>
+            </div>
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary">Add Rekomendasi OPD</button>
+            </div>
+        </form>
     </div>
-    <!-- Bootstrap JS and dependencies -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#status, #readed').select2({
+                placeholder: "Select",
+                allowClear: true
+            });
+        });
+    </script>
 </body>
 
 </html>

@@ -186,23 +186,7 @@
     <!-- /.sidebar -->
   </aside>
 
-  <script>
-    // Memilih elemen aside
-    const mainSidebar = document.querySelector('.main-sidebar');
-
-    // Memilih elemen-elemen yang mengindikasikan aktivitas aside
-    const sidebarElements = document.querySelectorAll('.main-sidebar, .main-sidebar *');
-
-    // Mendeteksi ketika mouse masuk dan meninggalkan aside atau elemen-elemen di dalamnya
-    sidebarElements.forEach(function (element) {
-      element.addEventListener('mouseenter', function () {
-        mainSidebar.style.width = '250px'; // Mengembalikan lebar aside ke ukuran awal
-      });
-      element.addEventListener('mouseleave', function () {
-        mainSidebar.style.width = '50px'; // Mengubah lebar aside menjadi lebih kecil
-      });
-    });
-  </script>
+ 
 </body>
 
 </html>

@@ -9,30 +9,6 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
-            background-color: #f8f9fa;
-            padding: 20px;
-        }
-        .form-container {
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        .form-group label {
-            font-weight: bold;
-        }
-        .btn-primary {
-            background-color: #007bff;
-            border-color: #007bff;
-            border-radius: 20px;
-        }
-        .btn-primary:hover {
-            background-color: #0056b3;
-            border-color: #0056b3;
-        }
-    </style>
-    <style>
-        body {
             font-family: 'Arial', sans-serif;
             background-color: #7ED56F; /* fallback for old browsers */
             background-image: linear-gradient(315deg, #7ED56F 0%, #28B485 74%);
@@ -60,13 +36,12 @@
             color: #666;
         }
 
-        .form-section {
+        .form-container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             margin-bottom: 2rem;
-            padding: 2rem;
-            border: 1px solid #ddd;
-            border-radius: 0.5rem;
-            background-color: #fff;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
 
         .form-group label {
@@ -79,27 +54,31 @@
             color: #999;
         }
 
-        button[type="submit"] {
+        .btn-primary {
             background-color: #ff6f61;
-            color: white;
-            font-weight: bold;
-            padding: 0.75rem 1.5rem;
-            border: none;
+            border-color: #ff6f61;
             border-radius: 0.25rem;
             cursor: pointer;
             transition: background-color 0.3s ease;
+            font-weight: bold;
+            padding: 0.75rem 1.5rem;
         }
 
-        button[type="submit"]:hover {
+        .btn-primary:hover {
             background-color: #e65042;
+            border-color: #e65042;
         }
+
     </style>
 </head>
 
 <body>
     <div class="container">
+        <div class="text-center header-image">
+            <img src="{{asset('lte/dist/img/LogoSmartdss.png')}}" width="500" height="300" alt="Header Image" class="img-fluid">
+        </div>
         <div class="form-container">
-            <h1 class="mb-4 text-center">Add New LPPM</h1>
+            <h1 class="mb-4 text-center section-title">Add New LPPM</h1>
             <form action="{{ route('lppms.store') }}" method="POST">
                 @csrf
                 <div class="form-group">

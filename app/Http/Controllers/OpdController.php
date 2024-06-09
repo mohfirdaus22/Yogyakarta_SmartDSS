@@ -44,7 +44,7 @@ class OpdController extends Controller
        RekomendasiOPD::create([
            'id_kajian' => $request->id_kajian,
            'opd_id' => $request->opd_id,
-           'rekomendasi' => base64_encode($request->rekomendasi),
+           'rekomendasi' =>$request->rekomendasi,
            'tindak_lanjut' => $request->tindak_lanjut,
            'status' => $request->status,
            'readed' => $request->readed
@@ -87,7 +87,7 @@ class OpdController extends Controller
         $rekomendasiopd = RekomendasiOPD::find($id);
         $rekomendasiopd->id_kajian = $request->id_kajian;
         $rekomendasiopd->opd_id = $request->opd_id;
-        $rekomendasiopd->rekomendasi =base64_encode( $request->rekomendasi);
+        $rekomendasiopd->rekomendasi =$request->rekomendasi;
         $rekomendasiopd->tindak_lanjut = $request->tindak_lanjut;
         $rekomendasiopd->status =  $request->status;
         $rekomendasiopd->readed = $request->readed;
