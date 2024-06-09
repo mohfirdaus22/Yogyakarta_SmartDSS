@@ -104,7 +104,9 @@
                   <table id="example1" class="table table-bordered table-striped">
                     <thead>
                       <tr>
+                        <th>No</th>
                         <th>OPD ID</th>
+                        <th>ID Kajian</th>
                         <th>Rekomendasi</th>
                         <th>Tindak Lanjut</th>
                         <th>Status</th>
@@ -114,7 +116,9 @@
                     <tbody>
                       @foreach($rekomendasiopds as $index => $data)
                       <tr>
+                        <td>{{ $index + 1 }}</td>
                         <td>{{ $data->opd_id }}</td>
+                        <td>{{ $data->id_kajian }}</td>
                         <td>{{ $data->rekomendasi }}</td>
                         <td>{{ $data->tindak_lanjut }}</td>
                         <td>{{ $data->status }}</td>

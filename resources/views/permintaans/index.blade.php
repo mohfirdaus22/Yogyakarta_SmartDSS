@@ -7,15 +7,13 @@
   <title>Smart DSS Kota Yogyakarta</title>
 
   <!-- Google Font: Source Sans Pro -->
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="{{asset('lte/plugins/fontawesome-free/css/all.min.css') }}">
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <!-- Tempusdominus Bootstrap 4 -->
-  <link rel="stylesheet"
-    href="{{asset('lte/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css') }}">
+  <link rel="stylesheet" href="{{asset('lte/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css') }}">
   <!-- iCheck -->
   <link rel="stylesheet" href="{{asset('lte/plugins/icheck-bootstrap/icheck-bootstrap.min.css') }}">
   <!-- JQVMap -->
@@ -116,30 +114,28 @@
                     </thead>
                     <tbody>
                       @foreach($permintaans as $index => $data)
-              <tr>
-              <td>{{ $index + 1 }}</td>
-              <td>{{ $data->judul }}</td>
-              <td>{{ $data->tahun }}</td>
-              <td>{{ $data->jss }}</td>
-              <td>{{ $data->nama }}</td>
-              <td>{{ $data->email }}</td>
-              <td>{{ $data->keperluan }}</td>
-              <td>{{ $data->instansi }}</td>
-              <td>{{ $data->tanggal }}</td>
-              <td>{{ $data->status == 1 ? 'Dibaca' : 'Belum Dibaca'}}</td>
-              <td>{{ $data->readed == 1 ? 'Dibaca' : 'Belum Dibaca' }}</td>
-              <td>
-                <a href="{{ route('permintaans.edit', $data->id) }}" class="btn btn-primary">Edit</a>
-                <form action="{{ route('permintaans.destroy', $data->id) }}" method="POST"
-                style="display:inline-block;">
-                @csrf
-                @method('DELETE')
-                <button type="submit" class="btn btn-danger"
-                  onclick="return confirm('Are you sure?')">Delete</button>
-                </form>
-              </td>
-              </tr>
-            @endforeach
+                      <tr>
+                        <td>{{ $index + 1 }}</td>
+                        <td>{{ $data->judul }}</td>
+                        <td>{{ $data->tahun }}</td>
+                        <td>{{ $data->jss }}</td>
+                        <td>{{ $data->nama }}</td>
+                        <td>{{ $data->email }}</td>
+                        <td>{{ $data->keperluan }}</td>
+                        <td>{{ $data->instansi }}</td>
+                        <td>{{ $data->tanggal }}</td>
+                        <td>{{ $data->status == 1 ? 'Dibaca' : 'Belum Dibaca'}}</td>
+                        <td>{{ $data->readed == 1 ? 'Dibaca' : 'Belum Dibaca' }}</td>
+                        <td>
+                          <a href="{{ route('permintaans.edit', $data->id) }}" class="btn btn-primary">Edit</a>
+                          <form action="{{ route('permintaans.destroy', $data->id) }}" method="POST" style="display:inline-block;">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete</button>
+                          </form>
+                        </td>
+                      </tr>
+                      @endforeach
                     </tbody>
 
                     </tfoot>
@@ -222,9 +218,11 @@
   <script src="{{asset('lte/dist/js/demo.js')}}"></script>
   <!-- Page specific script -->
   <script>
-    $(function () {
+    $(function() {
       $("#example1").DataTable({
-        "responsive": true, "lengthChange": true, "autoWidth": true,
+        "responsive": true,
+        "lengthChange": true,
+        "autoWidth": true,
         "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
       }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
     });
